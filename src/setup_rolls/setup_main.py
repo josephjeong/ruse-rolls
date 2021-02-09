@@ -22,14 +22,14 @@ def setupRolls():
             continue
 
         # get the coach details to share
-        coach_email = _class.get('fields').get('Coach Email')
+        coach_email = _class.get('fields').get('Coach Email')[0]
         coach_name = _class.get('fields').get('Coach Name')
         room = _class.get('fields').get('Room Name')
         print(coach_email)
 
         # create roll and share with coach
         roll_name = str(week_number) + " " + str(coach_name[0]) + " " + str(room[0])
-        project_id = createSharedProject(roll_name, 'joseph.b.jeong@gmail.com')
+        project_id = createSharedProject(roll_name, coach_email)
 
         # add all roll-names to src.custom_dependencies.todoist rolls
         addTaskList(project_id, roll_names)
@@ -43,4 +43,4 @@ def setupRolls():
             _class.get('fields').get('Students')
         )
 
-    return 'lmao'
+    return
