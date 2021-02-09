@@ -6,34 +6,34 @@ import uuid
 
 import requests
 
-from todoist import models
-from todoist.managers.activity import ActivityManager
-from todoist.managers.archive import (
+from src.custom_dependencies.todoist import models
+from src.custom_dependencies.todoist.managers.activity import ActivityManager
+from src.custom_dependencies.todoist.managers.archive import (
     ItemsArchiveManagerMaker,
     SectionsArchiveManagerMaker,
 )
-from todoist.managers.backups import BackupsManager
-from todoist.managers.biz_invitations import BizInvitationsManager
-from todoist.managers.business_users import BusinessUsersManager
-from todoist.managers.collaborator_states import CollaboratorStatesManager
-from todoist.managers.collaborators import CollaboratorsManager
-from todoist.managers.completed import CompletedManager
-from todoist.managers.emails import EmailsManager
-from todoist.managers.filters import FiltersManager
-from todoist.managers.invitations import InvitationsManager
-from todoist.managers.items import ItemsManager
-from todoist.managers.labels import LabelsManager
-from todoist.managers.live_notifications import LiveNotificationsManager
-from todoist.managers.locations import LocationsManager
-from todoist.managers.notes import NotesManager, ProjectNotesManager
-from todoist.managers.projects import ProjectsManager
-from todoist.managers.quick import QuickManager
-from todoist.managers.reminders import RemindersManager
-from todoist.managers.sections import SectionsManager
-from todoist.managers.templates import TemplatesManager
-from todoist.managers.uploads import UploadsManager
-from todoist.managers.user import UserManager
-from todoist.managers.user_settings import UserSettingsManager
+from src.custom_dependencies.todoist.managers.backups import BackupsManager
+from src.custom_dependencies.todoist.managers.biz_invitations import BizInvitationsManager
+from src.custom_dependencies.todoist.managers.business_users import BusinessUsersManager
+from src.custom_dependencies.todoist.managers.collaborator_states import CollaboratorStatesManager
+from src.custom_dependencies.todoist.managers.collaborators import CollaboratorsManager
+from src.custom_dependencies.todoist.managers.completed import CompletedManager
+from src.custom_dependencies.todoist.managers.emails import EmailsManager
+from src.custom_dependencies.todoist.managers.filters import FiltersManager
+from src.custom_dependencies.todoist.managers.invitations import InvitationsManager
+from src.custom_dependencies.todoist.managers.items import ItemsManager
+from src.custom_dependencies.todoist.managers.labels import LabelsManager
+from src.custom_dependencies.todoist.managers.live_notifications import LiveNotificationsManager
+from src.custom_dependencies.todoist.managers.locations import LocationsManager
+from src.custom_dependencies.todoist.managers.notes import NotesManager, ProjectNotesManager
+from src.custom_dependencies.todoist.managers.projects import ProjectsManager
+from src.custom_dependencies.todoist.managers.quick import QuickManager
+from src.custom_dependencies.todoist.managers.reminders import RemindersManager
+from src.custom_dependencies.todoist.managers.sections import SectionsManager
+from src.custom_dependencies.todoist.managers.templates import TemplatesManager
+from src.custom_dependencies.todoist.managers.uploads import UploadsManager
+from src.custom_dependencies.todoist.managers.user import UserManager
+from src.custom_dependencies.todoist.managers.user_settings import UserSettingsManager
 
 DEFAULT_API_VERSION = "v8"
 

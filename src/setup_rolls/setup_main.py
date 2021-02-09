@@ -31,7 +31,7 @@ def setupRolls():
         roll_name = str(week_number) + " " + str(coach_name[0]) + " " + str(room[0])
         project_id = createSharedProject(roll_name, 'joseph.b.jeong@gmail.com')
 
-        # add all roll-names to todoist rolls
+        # add all roll-names to src.custom_dependencies.todoist rolls
         addTaskList(project_id, roll_names)
 
     return 'lmao'
