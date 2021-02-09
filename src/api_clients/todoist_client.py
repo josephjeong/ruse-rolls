@@ -1,8 +1,8 @@
 import os
+from src.custom_dependencies.todoist.api import TodoistAPI
 
-from todoist.api import TodoistAPI
-
-td = TodoistAPI(os.getenv('TODOIST_KEY'))
+TODOIST_KEY= os.getenv('TODOIST_KEY')
+td = TodoistAPI(TODOIST_KEY)
 td.sync()
 
 def createSharedProject(project_name, shared_email):

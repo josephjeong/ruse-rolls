@@ -2,7 +2,6 @@
 main file that invokes the program to start
 '''
 from src.api_clients.todoist_client import addTaskList, createSharedProject
-
 from src.api_clients.airtable_client import createNewWeek, returnAllRecords
 
 def setupRolls():
