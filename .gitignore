@@ -1,0 +1,6 @@
+# dependencies already stored in package.json and requirements.txt
+.serverless
+.requirements
+__pycache__
+node_modules
+venv

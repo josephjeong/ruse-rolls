@@ -18,7 +18,7 @@ service: ruse-rolls
 
 # You can pin your service to only deploy with a specific Serverless version
 # Check out our docs for more details
-frameworkVersion: '2'
+frameworkVersion: '1.71.1'
 
 provider:
   name: aws
@@ -60,8 +60,11 @@ provider:
 #    - exclude-me-dir/**
 
 functions:
-  hello:
-    handler: handler.hello
+  api:
+    handler: wsgi_handler.handler
+    events:
+      - http: ANY /
+      - http: ANY {proxy+}
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details
@@ -116,3 +119,6 @@ functions:
 
 plugins:
   - serverless-wsgi
+custom:
+  wsgi:
+    app: api.app
