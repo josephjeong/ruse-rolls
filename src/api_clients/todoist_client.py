@@ -20,6 +20,7 @@ def addTaskList(project_id, task_list):
     '''
 
     for task_name in task_list:
+        print(task_name)
         td.items.add(task_name, project_id=project_id)
     
     td.commit()
