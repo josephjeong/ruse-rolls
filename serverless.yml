@@ -119,6 +119,7 @@ functions:
 
 plugins:
   - serverless-wsgi
+
 custom:
   wsgi:
-    app: api.app
+    app: src.api.app

@@ -4,3 +4,6 @@
 __pycache__
 node_modules
 venv
+
+# don't upload environment variables
+.env
