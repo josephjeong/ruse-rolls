@@ -1,0 +1,9 @@
+{
+  "name": "ruse-rolls",
+  "description": "",
+  "version": "0.1.0",
+  "dependencies": {},
+  "devDependencies": {
+    "serverless-wsgi": "^1.7.6"
+  }
+}
