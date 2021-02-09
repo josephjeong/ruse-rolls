@@ -2,7 +2,7 @@
 main file that invokes the program to start
 '''
 from src.api_clients.todoist_client import addTaskList, createSharedProject
-from src.api_clients.airtable_client import createNewWeek, returnAllRecords
+from src.api_clients.airtable_client import createNewRollEntry, createNewWeek, returnAllRecords
 
 def setupRolls():
 
@@ -33,5 +33,14 @@ def setupRolls():
 
         # add all roll-names to src.custom_dependencies.todoist rolls
         addTaskList(project_id, roll_names)
+
+        # create the roll entry in airtable
+        # we will take a deductive approach - any uncompleted "tasks" will be removed from a full class
+        createNewRollEntry(
+            new_week.get('id'), 
+            _class.get('id'), 
+            _class.get('fields').get('Coach')[0], 
+            _class.get('fields').get('Students')
+        )
 
     return 'lmao'
