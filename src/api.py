@@ -1,7 +1,7 @@
 from flask import Flask
 import json
 
-from src.main import main
+from src.setup_rolls.setup_main import setupRolls
 
 app = Flask(__name__)
 
@@ -11,7 +11,7 @@ def cats():
 
 @app.route("/students")
 def students():
-    return json.dumps(main())
+    return json.dumps(setupRolls())
 
 # if __name__ == "__main__":
 #     app.run(debug=True)

@@ -10,10 +10,6 @@ import airtable
 AIRTABLE_KEY = os.getenv('AIRTABLE_KEY')
 RUSE_DEBATING_PROGRAM_ID = os.getenv('RUSE_DEBATING_PROGRAM_ID')
 
-# used to help with debug
-import pprint
-pp = pprint.PrettyPrinter(indent=4)
-
 at = airtable.Airtable(RUSE_DEBATING_PROGRAM_ID, AIRTABLE_KEY)
 
 def returnAllRecords(table_name):

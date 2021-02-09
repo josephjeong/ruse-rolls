@@ -3,7 +3,7 @@ main file that invokes the program to start
 '''
 import json
 
-from src.airtable_client import returnAllRecords
+from src.api_clients.airtable_client import returnAllRecords
 
 def setupRolls():
     # get all the classes returned
@@ -19,4 +19,6 @@ def setupRolls():
 
         # add all roll-names to todoist rolls
         for roll_name in roll_names:
-            
+            print(roll_name)
+
+    return 'lmao'
