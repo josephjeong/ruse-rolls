@@ -1,5 +1,5 @@
 import os
-from src.custom_dependencies.todoist import TodoistAPI
+from todoist.api import TodoistAPI
 
 TODOIST_KEY= os.getenv('TODOIST_KEY')
 td = TodoistAPI(TODOIST_KEY)
