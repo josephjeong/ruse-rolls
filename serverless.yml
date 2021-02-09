@@ -119,6 +119,7 @@ functions:
 
 plugins:
   - serverless-wsgi
+  - serverless-dotenv-plugin
 
 custom:
   wsgi:

@@ -7,3 +7,7 @@ venv
 
 # don't upload environment variables
 .env
+aws_access_keys.txt
+
+# development environment settings
+.vscode
