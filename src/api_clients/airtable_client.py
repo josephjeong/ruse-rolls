@@ -12,6 +12,10 @@ RUSE_DEBATING_PROGRAM_ID = os.getenv('RUSE_DEBATING_PROGRAM_ID')
 
 at = airtable.Airtable(RUSE_DEBATING_PROGRAM_ID, AIRTABLE_KEY)
 
+def _normify(input_dict):
+    ''' removes ordered dicts '''
+    return json.loads(json.dumps(input_dict))
+
 def returnAllRecords(table_name):
     '''
     Returns all the students that are in the airtable system
@@ -20,7 +24,7 @@ def returnAllRecords(table_name):
     records = []
 
     # get the initial 100 results
-    returned_records_page = json.loads(json.dumps(at.get(table_name=table_name, limit=100)))
+    returned_records_page = _normify(at.get(table_name=table_name, limit=100))
     offset = returned_records_page.get('offset')
 
     # get a list of the records
@@ -30,7 +34,7 @@ def returnAllRecords(table_name):
 
     # while there are further results, request them
     while(offset):
-        returned_records_page = json.loads(json.dumps(at.get(table_name=table_name, limit=100, offset=offset)))
+        returned_records_page = _normify(at.get(table_name=table_name, limit=100, offset=offset))
         offset = returned_records_page.get('offset')
 
         # if there are additional records, add them to students
@@ -46,7 +50,11 @@ def getRecord(table_name, record_id):
     There will always only be one record
     '''
     try:
-        record = json.loads(json.dumps(at.get(table_name=table_name, record_id=record_id)))
+        record = _normify(at.get(table_name=table_name, record_id=record_id))
         return record
     except:
         raise Exception('Record_ID does not exist')
+
+def createNewWeek():
+    ''' simple function to create a new week '''
+    return _normify(at.create('Weeks', {}))

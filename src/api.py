@@ -1,5 +1,5 @@
-from flask import Flask
 import json
+from flask import Flask
 
 from src.setup_rolls.setup_main import setupRolls
 

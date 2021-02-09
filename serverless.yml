@@ -123,4 +123,4 @@ plugins:
 
 custom:
   wsgi:
-    app: src.api.app
+    app: src/api.app
