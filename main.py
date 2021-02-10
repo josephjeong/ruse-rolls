@@ -8,7 +8,6 @@ from src.setup_rolls.setup_main import setupRolls
 
 text = input("Input 0 for setup, 1 for read\n")
 if text == "0":
-    # setupRolls()
-    pass
+    setupRolls()
 else:
     readRolls()
