@@ -67,3 +67,49 @@ def createNewRollEntry(week_id, class_id, coach_id, student_id_list):
     }
 
     at.create('Overall Rolls', new_entry)
+
+def getLatestWeek():
+    ''' 
+    gets the latest record created from airtable 
+    
+    returns object in this format:
+    {
+        'records': [
+            {'id': 'recYAe0G9splUuHxa', 
+            'fields': {
+                'Auto-Week Number': 3, 
+                'Overall Rolls': [
+                    'recY5lGoaqU0kIdm8', 
+                    'reciIdKOKRHnizy7L', 
+                    'receWMRZwy9viDcYY', 
+                    'rec2mkU1TeRw3lEQH', 
+                    'reclqDSBhTmDLiLN2', 
+                    'recqMrl1C9izgHfKT', 
+                    'recQdLPP2Owh7Qtp0', 
+                    'rec2vmu9bxhQzs0Np', 
+                    'recmine3DYfFBnbFN', 
+                    'recx5GUVwYfkpjV0U', 
+                    'recDdZNKUgERdJN3j', 
+                    'rec3ltEa2G9Bn9xLn', 
+                    'recnDbVJpteY8mLS4', 
+                    'recAov9u92r7pHv2b'], 
+                'Week': 'Week 3 - 09 Feb - 16 Feb 2021', 
+                'Created': '2021-02-09', 
+                'Calculation': 'recYAe0G9splUuHxa'
+                }, 
+                'createdTime': '2021-02-09T08:21:25.000Z'
+            }
+        ]
+    }
+    '''
+
+    return normify(at.get('Weeks', max_records=1, view='LatestWeek'))
+
+def searchRollsByTodoistId(todoist_id):
+    return normify(at.get('Overall Rolls',
+        max_records=1, 
+        filter_by_formula='{todoist-roll-id}=' + str(todoist_id)
+        ))
+
+def updateRolls(record_id, data):
+    at.update(table_name='Overall Rolls', record_id=record_id, data=data)

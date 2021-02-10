@@ -1,4 +1,5 @@
 import os
+import requests
 from todoist.api import TodoistAPI
 
 # from src.api_clients.normify import normify
@@ -43,6 +44,8 @@ def getAllProjects():
     'parent_id': None,
     'shared': True,
     'sync_id': 8355925})
+
+    only returns unarchived active projects
     
      '''
 
@@ -55,8 +58,29 @@ def getAllProjects():
     # normify the projects
     for project in project_list:
         if not project: continue
+        normified_project = vars(project)
+        if normified_project.get('data').get('is_archived') == 1: continue
             
         # create the normified dict
-        normified_project_list.append(vars(project))
+        normified_project_list.append(normified_project)
     
     return normified_project_list
+
+def getAllTasks(project_id):
+    ''' gets all the data from a project '''
+
+    return td.projects.get_data(project_id)
+
+def archiveRolls(project_id):
+    reply = requests.get("https://api.todoist.com/rest/v1/projects/" + str(project_id) + "/collaborators", headers={"Authorization": "Bearer %s" % TODOIST_KEY})
+    collaborators = reply.json()
+
+    for collaborator in collaborators:
+        if collaborator['name'] == 'joe.b.jeong':
+            continue
+        else:
+            td.collaborators.delete(project_id=project_id, email=collaborator['email'])
+
+    td.projects.archive(project_id)
+    td.commit()
+
