@@ -18,16 +18,13 @@ def returnAllRecords(table_name):
     Returns all the students that are in the airtable system
     '''
 
-    records = []
-
     # get the initial 100 results
     returned_records_page = normify(at.get(table_name=table_name, limit=100))
     offset = returned_records_page.get('offset')
 
     # get a list of the records
     records = returned_records_page.get('records')
-    if records:
-        records = records
+    if not records: return []
 
     # while there are further results, request them
     while(offset):
