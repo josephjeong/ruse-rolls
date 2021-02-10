@@ -56,14 +56,14 @@ def createNewWeek():
     ''' simple function to create a new week '''
     return normify(at.create('Weeks', {}))
 
-def createNewRollEntry(week_id, class_id, coach_id, student_id_list):
+def createNewRollEntry(week_id, class_id, coach_id, todoist_id):
     ''' creates a new roll entry for coach and students '''
 
     new_entry = {
         "Week": [week_id],
         "Class": [class_id],
         "Coach": [coach_id],
-        "Students Attended": student_id_list
+        "todoist-roll-id": todoist_id
     }
 
     at.create('Overall Rolls', new_entry)

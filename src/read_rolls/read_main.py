@@ -12,7 +12,6 @@ pp = PrettyPrinter(indent = 4)
 def readRolls():
     ''' main function to read rolls '''
 
-    latest_week = getLatestWeek()
     projects = getAllProjects()
 
     for project in projects:
