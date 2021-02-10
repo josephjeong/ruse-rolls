@@ -18,16 +18,13 @@ def returnAllRecords(table_name):
     Returns all the students that are in the airtable system
     '''
 
-    records = []
-
     # get the initial 100 results
     returned_records_page = normify(at.get(table_name=table_name, limit=100))
     offset = returned_records_page.get('offset')
 
     # get a list of the records
     records = returned_records_page.get('records')
-    if records:
-        records = records
+    if not records: return []
 
     # while there are further results, request them
     while(offset):
@@ -56,14 +53,15 @@ def createNewWeek():
     ''' simple function to create a new week '''
     return normify(at.create('Weeks', {}))
 
-def createNewRollEntry(week_id, class_id, coach_id, todoist_id):
+def createNewRollEntry(week_id, class_id, coach_id, todoist_id, student_id_list):
     ''' creates a new roll entry for coach and students '''
 
     new_entry = {
         "Week": [week_id],
         "Class": [class_id],
         "Coach": [coach_id],
-        "todoist-roll-id": todoist_id
+        "todoist-roll-id": todoist_id,
+        "Students Absent": student_id_list
     }
 
     at.create('Overall Rolls', new_entry)
