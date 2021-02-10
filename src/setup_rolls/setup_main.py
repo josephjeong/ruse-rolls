@@ -40,7 +40,7 @@ def setupRolls():
             new_week.get('id'), 
             _class.get('id'), 
             _class.get('fields').get('Coach')[0], 
-            _class.get('fields').get('Students')
+            project_id
         )
 
     return
