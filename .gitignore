@@ -11,3 +11,7 @@ aws_access_keys.txt
 
 # development environment settings
 .vscode
+
+# gsheets authentication
+credentials.json
+token.pickle

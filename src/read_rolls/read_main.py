@@ -4,7 +4,7 @@ main file that reads rolls and marks attendance
 
 import re
 
-from src.api_clients.airtable_client import getLatestWeek, searchRollsByTodoistId, updateRolls
+from src.api_clients.airtable_client import searchRollsByTodoistId, updateRolls
 from src.api_clients.todoist_client import getAllProjects, getAllTasks, archiveRolls
 
 def searchRecordId(roll_name):
