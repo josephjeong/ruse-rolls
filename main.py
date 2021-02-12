@@ -1,6 +1,9 @@
 '''
-Dummy file to setup rolls
+Main file for interacting with script
 '''
+
+from dotenv import load_dotenv
+load_dotenv()
 
 from src.coach_timesheets.timesheets_main import timesheetsMain
 from src.read_rolls.read_main import readRolls

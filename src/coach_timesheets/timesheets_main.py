@@ -4,6 +4,7 @@ from src.api_clients.sheets_client import addTimesheet
 from src.api_clients.airtable_client import getLatestWeek, getRecord
 
 def timesheetsMain():
+
     current_week = getLatestWeek().get('records')[0].get('fields')
 
     for rolls_id in current_week.get('Overall Rolls'):
